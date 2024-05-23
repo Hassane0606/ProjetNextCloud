@@ -60,5 +60,5 @@ flux create helmrelease nextcloud \
   --interval=1m \
   --export > ./clusters/project/nextcloud-helmrelease.yaml
 
-** Connect to Nextcloud
+** Connect to Nextcloud ** 
 k port-forward svc/nextcloud-nextcloud 8080:8080
