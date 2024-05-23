@@ -1,5 +1,5 @@
 Kubernetes
-<!--Create cluster & set kubeconfig -->
+<!-- Create cluster & set kubeconfig -->
 eksctl create cluster -f cluster.yml
 aws eks update-kubeconfig --name projet-cluster --region us-east-1
 
