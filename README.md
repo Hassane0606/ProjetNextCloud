@@ -1,32 +1,28 @@
 # Kubernetes
 ** Create cluster & set kubeconfig
-eksctl create cluster -f cluster.yml
-aws eks update-kubeconfig --name projet-cluster --region us-east-1
+
 
 ** Create the namespace
-kubectl create ns nextcloud
-kubectl config set-context --current --namespace=nextcloud
+
 # Nextcloud
 ** Adding the helm repo for nextcloud
 helm repo add nextcloud https://nextcloud.github.io/helm/
 
 ** Installing & Updating
-helm install nextcloud nextcloud/nextcloud -f values.yaml -n nextcloud
-helm install nextcloud nextcloud/nextcloud -f values.yaml -n nextcloud
+
 
 ** Connect to nextcloud
-export POD_NAME=$(kubectl get pods --namespace nextcloud -l "app.kubernetes.io/name=nextcloud" -o jsonpath="{.items[0].metadata.name}")
-echo http://127.0.0.1:8080/
-kubectl port-forward $POD_NAME 8080:80 -n nextcloud
+
 
 ** Get credentials
-kubectl get secret --namespace nextcloud nextcloud -o jsonpath="{.data.nextcloud-password}" | base64 --decode
-# Helm
-** List all helm releases
-helm list --all-namespaces
 
-** Uninstall a helm release
-helm uninstall <release> -n <namespace>
+
+# Helm
+'''List all helm releases'''
+
+
+'''Uninstall a helm release'''
+
 # Flux CD
 ** Install Flux
 export GITHUB_TOKEN="<token>"
